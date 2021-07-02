@@ -40,6 +40,7 @@ public class MonProfilServlet extends HttpServlet {
             } catch (BusinessException e) {
                 e.printStackTrace();
                 request.setAttribute("listeCodesErreur", e.getListeCodesErreur());
+                request.getRequestDispatcher("WEB-INF/monprofil.jsp").forward(request, response);
             }
         }else{
             request.getRequestDispatcher("WEB-INF/monprofil.jsp").forward(request, response);

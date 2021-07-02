@@ -67,7 +67,7 @@
                         </c:if>
 
                         <c:if test="${statutUtilisateur == 'encherisseur' && etatVente == 'en cours'}">
-                            <label class="col-form-label" for="prix">Ma proposition :</label>
+                            <label  class="col-form-label" for="prix">Ma proposition :</label>
                             <input class="form-control" type="number" id="prix" name="prix">
                             <input type="hidden" name="noarticle" value="${article.noArticle}">
                             <button class="btn btn-primary w-100" type="submit">Encherir</button>

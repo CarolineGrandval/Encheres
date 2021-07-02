@@ -75,8 +75,10 @@ public class InscriptionServlet extends HttpServlet {
 
         String telephone = req.getParameter("telephone");
         req.setAttribute("telephone", telephone);
-        if (!utilitaire.telValidation(telephone)){
-            listeCodesErreur.add(CodesErreurServlet.TEL_NON_VALIDE);
+        if (telephone != null && !telephone.equals("")){
+            if (!utilitaire.telValidation(telephone)){
+                listeCodesErreur.add(CodesErreurServlet.TEL_NON_VALIDE);
+            }
         }
 
         String cp = req.getParameter("cp");
@@ -90,7 +92,8 @@ public class InscriptionServlet extends HttpServlet {
         String ville = req.getParameter("ville");
         if (ville == null || ville.trim().equals("")) {
             listeCodesErreur.add(CodesErreurServlet.VILLE_UTILISATEUR_OBLIGATOIRE);
-        } if(!utilitaire.rechercheCaracSpecial(ville) || utilitaire.rechercheChiffre(ville)){
+        } else
+        if (!utilitaire.rechercheCaracSpecial(ville) || utilitaire.rechercheChiffre(ville)){
             listeCodesErreur.add(CodesErreurServlet.CARAC_NON_VALIDES);
         }else {
             req.setAttribute("ville", ville);
