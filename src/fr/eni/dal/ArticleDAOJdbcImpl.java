@@ -17,7 +17,7 @@ public class ArticleDAOJdbcImpl implements ArticleDAO {
     private static final String INSERT_ARTICLE = "INSERT INTO ARTICLES (nom_article, description, date_debut_vente, date_fin_vente, prix_initial, prix_vente, no_utilisateur, no_categorie) VALUES ( ?,?,?,?,?,?,?,? )";
     private static final String INSERT_RETRAIT = "INSERT INTO RETRAITS (no_article, rue, code_postal, ville) VALUES ( ?,?,?,? )";
     private static final String UPDATE_ARTICLE = "UPDATE ARTICLES SET nom_article= ?, description=?, date_debut_vente=?, date_fin_vente=?, prix_initial=?, prix_vente=?, no_utilisateur=?, no_categorie=? WHERE no_article=?";
-    private static final String DELETE_ARTICLE = "DELETE FROM ARTICLES WHERE ID=?";
+    private static final String DELETE_ARTICLE = "DELETE FROM ARTICLES WHERE no_article=?";
 
     //Requete SQL dynamique pour la recherche
     private String selectArticles = "SELECT ARTICLES.no_article, nom_article, description, date_debut_vente, date_fin_vente, prix_initial, prix_vente,\n" +

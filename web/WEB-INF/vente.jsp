@@ -114,7 +114,8 @@
                         </c:if>
                         <c:if test="${!empty articleAModifier}">
                             <input type="hidden" value="${articleAModifier.noArticle}" name="noArticle">
-                            <button class="btn btn-primary w-100" type="submit">Valider la modification</button>
+                            <button class="btn btn-primary w-100" type="submit" name="modifier" value="modif">Valider la modification</button>
+                            <button class="btn btn-danger w-100" type="submit" name="supprimer" value="supp">Supprimer l'article</button>
                         </c:if>
                     </div>
                 </div>

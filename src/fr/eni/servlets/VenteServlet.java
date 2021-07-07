@@ -138,12 +138,20 @@ public class VenteServlet extends HttpServlet {
         } else {
             try {
                 //On veut modifier un article
-                if (request.getParameter("noArticle") != null && !request.getParameter("noArticle").equals("")){
+                if (request.getParameter("noArticle") != null && !request.getParameter("noArticle").equals("") && request.getParameter("modifier") != null) {
                     int noArticle = Integer.parseInt(request.getParameter("noArticle"));
                     articleManager.insererArticle(noArticle, nomArticle, description, debutEnchere, finEnchere, prixInitial, categorie, utilisateur, rue, codePostal, ville);
                     String msgConfModifArticle = "La modification de l'article a bien été enregistrée";
                     request.setAttribute("msgConfirmationModif", msgConfModifArticle);
                     request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
+                }
+                //On veut supprimer l'article
+                if (request.getParameter("noArticle") != null && !request.getParameter("noArticle").equals("") && request.getParameter("supprimer") != null){
+                        int noArticle = Integer.parseInt(request.getParameter("noArticle"));
+                        articleManager.supprimerArticle(noArticle);
+                        String msgConfSuppArticle = "La suppression de l'article a bien été enregistrée";
+                        request.setAttribute("msgConfirmationModif", msgConfSuppArticle);
+                        request.getRequestDispatcher("WEB-INF/confirmation.jsp").forward(request, response);
 
                 }else{
                     //on veut créer un article
